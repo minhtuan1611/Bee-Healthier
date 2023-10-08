@@ -85,6 +85,7 @@ app.delete('/api/users/:id', (request, response, next) => {
 
 app.use(unknownEndpoint)
 app.use(errorHandler)
+app.use(express.static('dist'))
 
 const PORT = process.env.PORT || 3003
 app.listen(PORT, () => {

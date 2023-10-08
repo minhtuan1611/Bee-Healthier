@@ -32,7 +32,7 @@ const errorHandler = (error, request, response, next) => {
 app.use(cors())
 app.use(express.json())
 app.use(requestLogger)
-app.use(express.static('build'))
+app.use(express.static('dist'))
 
 app.get('/api/users', (req, res) => {
   User.find({}).then((users) => {
@@ -85,7 +85,6 @@ app.delete('/api/users/:id', (request, response, next) => {
 
 app.use(unknownEndpoint)
 app.use(errorHandler)
-app.use(express.static('dist'))
 
 const PORT = process.env.PORT || 3003
 app.listen(PORT, () => {
